@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const weightSchema = mongoose.Schema({
-    value: { type: Number },
-    userId: { type: String },
-    date: { type: Date }
+    value: { type: Number, required: true },
+    userId: { type: String, required: true },
+    date: { type: Date, required: true }
 });
 
 module.exports = mongoose.model('Weight', weightSchema);

@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 const weightRoutes = require('./routes/weight');
-
+const userRoutes = require('./routes/user');
 //connection mongodatabase
 mongoose.connect(
         'mongodb+srv://molletsimon:bspahOcz603eQvIT@cluster0-twfrq.mongodb.net/Weight?retryWrites=true&w=majority',
@@ -24,5 +24,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api/weight', weightRoutes);
+app.use('/api/user', userRoutes);
 
 module.exports = app;
