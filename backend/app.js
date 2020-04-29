@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
 
+const weightRoutes = require('./routes/weight');
+
 //connection mongodatabase
 mongoose.connect(
         'mongodb+srv://molletsimon:bspahOcz603eQvIT@cluster0-twfrq.mongodb.net/Weight?retryWrites=true&w=majority',
@@ -20,5 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+
+app.use('/api/weight', weightRoutes);
 
 module.exports = app;

@@ -9,7 +9,6 @@ const userSchema = mongoose.Schema({
     startIMC: { type: Number, required: true }
 });
 
-//test
 userSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('User', userSchema);
