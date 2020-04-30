@@ -32,3 +32,9 @@ exports.getAllWeight = (req, res, next) => {
         .then(weights => res.status(200).json(weights))
         .catch(error => res.status(400).json(error))
 }
+
+exports.getAllWeightByUser = (req, res, next) => {
+    Weight.find({userId: req.params.user})
+        .then(weights => res.status(200).json(weights))
+        .catch(error => res.status(400).json(error));
+}
