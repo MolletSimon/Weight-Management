@@ -36,7 +36,7 @@ export class WeightPage implements OnInit {
 		this.weightService.getWeightOfUser(this.actualUser).subscribe(weights => {
 			this.weights = weights;
 			this.weights.reverse();
-			this.weights = this.weights.slice(0, 5);
+			this.weights = this.weights.slice(0, 6);
 		})
 	}
 
