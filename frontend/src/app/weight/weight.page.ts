@@ -1,0 +1,86 @@
+import { Component, OnInit } from '@angular/core';
+import { WeightService } from '../services/weight.service';
+import { User } from '../models/User.model';
+import { ToastController } from '@ionic/angular';
+import { Weight } from '../models/Weight.model';
+import { DatePipe } from '@angular/common';
+
+@Component({
+	selector: 'app-weight',
+	templateUrl: 'weight.page.html',
+	styleUrls: ['weight.page.scss']
+})
+export class WeightPage implements OnInit {
+	weights: Weight[];
+	actualUser: User;
+	weightModified = false;
+
+	constructor(
+		private weightService: WeightService,
+		private toastController: ToastController,
+		private datePipe: DatePipe
+		) { }
+
+	ngOnInit() {
+		this.getUserInfos();
+	}
+
+	getUserInfos() {
+		this.weightService.getUserInfo().subscribe(user => {
+			this.actualUser = user;
+			this.getWeights();
+		})
+	}
+
+	getWeights() {
+		this.weightService.getWeightOfUser(this.actualUser).subscribe(weights => {
+			this.weights = weights;
+			this.weights.reverse();
+			this.weights = this.weights.slice(0, 5);
+		})
+	}
+
+	getLastWeight() {
+		return this.weights[0].value;
+	}
+
+	addWeight() {
+		this.actualUser.actualWeight = +(this.actualUser.actualWeight + 0.1).toFixed(1);
+		this.weightModified = true;
+	}
+
+	removeWeight() {
+		this.actualUser.actualWeight = +(this.actualUser.actualWeight - 0.1).toFixed(1);
+		this.weightModified = true;
+	}
+
+	save() {
+		this.weightModified = false;
+		this.weightService.modifyUserInfo(this.actualUser)
+			.subscribe(async (res) => {
+				this.addWeightDatabase();
+				const toast = await this.toastController.create({
+					message: res["message"],
+					duration: 3000,
+					color: 'primary'
+				  });
+				  toast.present();
+			});
+	}
+
+	addWeightDatabase() {
+		const weight = new Weight();
+		weight.value = this.actualUser.actualWeight;
+		weight.userId = this.actualUser._id;
+		weight.date = new Date();
+		if (this.actualUser.actualWeight < this.getLastWeight()) {
+			weight.loss = "loss";
+		} else if (this.actualUser.actualWeight > this.getLastWeight()) {
+			weight.loss = "gain";
+		} else {
+			weight.loss = "draw";
+		}
+		this.weightService.addWeight(weight)
+			.subscribe(res => this.getWeights());
+	}
+}

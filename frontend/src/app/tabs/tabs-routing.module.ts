@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: 'Weight',
-        loadChildren: () => import('../tab1/weight.module').then(m => m.WeightPageModule)
+        loadChildren: () => import('../weight/weight.module').then(m => m.WeightPageModule)
       },
       {
         path: 'IMC',

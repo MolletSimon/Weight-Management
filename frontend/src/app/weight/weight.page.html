@@ -1,0 +1,116 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Poids
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="first-row">
+    <ion-card class="card" style="margin-right: 3px;">
+      <ion-card-header class="card-header" id="first-card-header">
+        <div class="header">
+          <ion-card-subtitle>
+            <img src="../../assets/icon/startweight.png" alt="">
+          </ion-card-subtitle>
+          <ion-card-subtitle>Poids de départ</ion-card-subtitle>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content class="card-content" id="first-card-content" *ngIf="actualUser">
+        {{actualUser.startWeight}}kg
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-card-header class="card-header" id="second-card-header">
+        <div class="header">
+          <ion-card-subtitle>
+            <img src="../../assets/icon/objectifweight.png" alt="">
+          </ion-card-subtitle>
+          <ion-card-subtitle>Objectif de poids</ion-card-subtitle>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content class="card-content" *ngIf="actualUser" id="second-card-content">
+        {{actualUser.goalWeight}}kg
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="first-row">
+    <ion-card class="card">
+      <ion-card-header class="card-header" id="third-card-header">
+        <div class="header">
+          <ion-card-subtitle>
+            <img src="../../assets/icon/actualweight.png" alt="">
+          </ion-card-subtitle>
+          <div class="modify-weight">
+            <ion-button fill="clear" color="light" (click)="removeWeight()">
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </ion-button>
+            <ion-card-subtitle>Poids</ion-card-subtitle>
+            <ion-button fill="clear" color="light" (click)="addWeight()">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content class="card-content" *ngIf="actualUser" id="third-card-content">
+        {{actualUser.actualWeight}}kg
+      </ion-card-content>
+      <ion-button 
+      *ngIf="weightModified" 
+      color="tertiary" 
+      fill="outline"
+      class="save-button"
+      (click)="save()">Sauvegarder</ion-button>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-list>
+        <ion-item color="light">
+          <ion-label class="label">Date  | Poids</ion-label>
+        </ion-item>
+
+        <div class="weight-list" *ngFor="let weight of weights">
+          <ion-item *ngIf="weight.loss == 'loss'" color="primary">
+            <ion-label class="label" >{{weight.date | date:"dd-MM"}} | {{weight.value}}kg</ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="weight.loss == 'draw'" color="warning">
+            <ion-label class="label" >{{weight.date | date:"dd-MM"}} | {{weight.value}}kg</ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="weight.loss == 'gain'" color="danger">
+            <ion-label class="label" >{{weight.date | date:"dd-MM"}} | {{weight.value}}kg</ion-label>
+          </ion-item>
+        </div>
+        
+
+        <!-- <ion-item color="primary">
+          <ion-label class="label">24-05 | 87.4kg</ion-label>
+        </ion-item>
+        <ion-item color="primary">
+          <ion-label class="label">26-05 | 87.1kg</ion-label>
+        </ion-item>
+        <ion-item color="danger">
+          <ion-label class="label">27-05 | 87.3kg</ion-label>
+        </ion-item>
+        <ion-item color="warning">
+          <ion-label class="label">29-05 | 87.3kg</ion-label>
+        </ion-item>
+        <ion-item color="primary">
+          <ion-label class="label">30-05 | 87.1kg</ion-label>
+        </ion-item>
+        <ion-item color="danger">
+          <ion-label class="label">31-05 | 87.4kg</ion-label>
+        </ion-item> -->
+      </ion-list>
+    </ion-card>
+  </div>
+
+
+</ion-content>

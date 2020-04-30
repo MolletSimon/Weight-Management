@@ -1,0 +1,74 @@
+.first-row {
+    display: flex;
+}
+
+.card {
+    width: 45%;
+    height: 40%;
+    border: solid;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.card-header {
+    height: 80%;
+    ion-card-subtitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+#first-card-header {
+    background-color: #8DD7CF;
+}
+
+#first-card-content {
+    color: #8DD7CF;
+}
+
+#second-card-header {
+    background-color: #F3C19C;
+}
+
+#second-card-content {
+    color: #F3C19C;
+}
+
+#third-card-header {
+    background-color: #B2ABFA;
+}
+
+#third-card-content {
+    color: #B2ABFA;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    font-size: 22px;
+}
+
+.label {
+    color: black;
+    margin-right: 0px;
+    font-family: "HammersmithOne";
+    font-size: smaller;
+    text-align: center;
+}
+
+.modify-weight {
+    display: flex;
+    justify-content: center;
+
+    ion-button {
+        margin-top: 10px;
+    }
+}
+
+.save-button {
+    display: flex;
+}

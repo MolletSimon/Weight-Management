@@ -34,7 +34,7 @@ exports.getAllWeight = (req, res, next) => {
 }
 
 exports.getAllWeightByUser = (req, res, next) => {
-    Weight.find({userId: req.params.user})
+    Weight.find({userId: req.params.userId})
         .then(weights => res.status(200).json(weights))
         .catch(error => res.status(400).json(error));
 }

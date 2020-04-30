@@ -4,7 +4,7 @@ const weightCtrl = require('../controllers/weight');
 const auth = require('../middleware/auth');
 
 //post
-router.post('/' , auth, weightCtrl.addWeight);
+router.post('/' , weightCtrl.addWeight);
 
 //put
 router.put('/:id', auth, weightCtrl.modifyWeight);
@@ -15,5 +15,6 @@ router.delete('/:id', auth, weightCtrl.deleteWeight);
 //get
 router.get('/:id', auth, weightCtrl.getOneWeight);
 router.get('/', auth, weightCtrl.getAllWeight);
+router.get('/user/:userId', auth, weightCtrl.getAllWeightByUser);
 
 module.exports = router;
