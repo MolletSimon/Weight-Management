@@ -52,19 +52,27 @@
       </div>
     </ion-card-header>
 
-    <ion-card-content class="card-content" *ngIf="actualImc">
+    <ion-card-content class="card-content-imc" *ngIf="actualImc">
+      <ion-label color="tertiary" id="label-imc">{{actualImc.actualImc}}</ion-label>
       <div class="bar">
-      <ion-progress-bar value="{{imcPourcent}}"></ion-progress-bar>
-      <ion-label>18.5</ion-label>
-      <ion-label>25</ion-label>
-      <ion-label>30</ion-label>
-      <ion-label>35</ion-label>
-    </div>
+        <ion-progress-bar color="primary" value="{{imcPourcent}}" *ngIf="imcPourcent <= 0.39" ></ion-progress-bar>
+        <ion-progress-bar color="warning" value="{{imcPourcent}}" *ngIf="imcPourcent <= 0.7 && imcPourcent > 0.39"></ion-progress-bar>
+        <ion-progress-bar color="danger" value="{{imcPourcent}}" *ngIf="imcPourcent <= 0.7 && imcPourcent > 0.7"></ion-progress-bar>
+        <ion-progress-bar color="dark" value="{{imcPourcent}}" *ngIf="imcPourcent >= 1"></ion-progress-bar>
+
+        <div class="scale">
+          <ion-label color="primary">20</ion-label>
+          <ion-label color="warning">25</ion-label>
+          <ion-label color="danger">30</ion-label>
+          <ion-label id="last-scale">35</ion-label>
+        </div>
+      </div>
     </ion-card-content>
   </ion-card>
 
   <ion-text color="medium">
-    <p class="bottom-text">L'IMC est calculé en fonction de votre taille et de votre sexe, vous pouvez modifier ces paramètres dans la section "Mon Compte" de l'application</p>
+    <p class="bottom-text">L'IMC est calculé en fonction de votre taille et de votre sexe, vous pouvez modifier ces
+      paramètres dans la section "Mon Compte" de l'application</p>
   </ion-text>
 
 </ion-content>

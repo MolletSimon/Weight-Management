@@ -16,10 +16,16 @@
     font-size: 22px;
 }
 
+.card-content-imc {
+    justify-content: center;
+    margin-top: 10%;
+    font-size: 22px;
+}
+
 .card-imc {
     border: solid;
     box-shadow: 5px 5px lightgrey;
-    height: 20%;
+    height: 27%;
 }
 
 .card-header-imc {
@@ -81,8 +87,26 @@
     background-color: #B2ABFA;
 }
 
+#label-imc {
+    display: flex;
+    justify-content: center;
+    margin-top: -15px;
+    margin-bottom: 13px;
+}
+
 .bottom-text {
     padding: 20px;
     text-align: center;
     font-style: italic;
+}
+
+.scale {
+    display: flex;
+    ion-label {
+        width: 100%;
+    }
+}
+
+#last-scale {
+    margin-right: -64px;
 }

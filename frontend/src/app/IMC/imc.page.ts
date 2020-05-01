@@ -37,7 +37,7 @@ export class IMCPage implements OnInit {
 	}
 
 	getImcPourcentage() {
-		this.imcPourcent = Math.round((this.actualImc.actualImc * 35) / 18.5) / 100;
+		this.imcPourcent = Math.round(((this.actualImc.actualImc - 18.5) * 100) / 16.5) / 100;
 	}
 
 	getImc() {
