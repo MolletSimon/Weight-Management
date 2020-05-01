@@ -6,24 +6,7 @@ The backend is an API with the NodeJS Runtime, the express framework and mongodb
 The frontend is a basic tab ionic 4 app.
 
 ## Installation and run the API
-Clone the project with this command
-```bash
-git clone https://github.com/MolletSimon/Weight-Management.git
-```
-
-Once the project clone, go to the backend and install the node_modules with the command 
-```bash
-cd backend
-npm install
-```
-after that you can the server on your localhost with the command
-```bash
-npm start
-```
-or if you got the package nodemon installed on your device you can run 
-```bash
-nodemon server
-```
+Now the API is host on Clever Cloud so you don't habe to install it and run in local anymore
 
 ## Install and Run the frontend 
 You cloned the back and the front at the same time so all you need to do is
