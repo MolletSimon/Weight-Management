@@ -13,7 +13,7 @@ const routes: Routes = [
       },
       {
         path: 'IMC',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('../IMC/imc.module').then(m => m.IMCPageModule)
       },
       {
         path: 'Account',

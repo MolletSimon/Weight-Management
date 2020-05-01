@@ -7,6 +7,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div class="first-row">
     <ion-card class="card" style="margin-right: 3px;">
       <ion-card-header class="card-header" id="first-card-header">
@@ -88,26 +91,6 @@
             <ion-label class="label" >{{weight.date | date:"dd-MM"}} | {{weight.value}}kg</ion-label>
           </ion-item>
         </div>
-        
-
-        <!-- <ion-item color="primary">
-          <ion-label class="label">24-05 | 87.4kg</ion-label>
-        </ion-item>
-        <ion-item color="primary">
-          <ion-label class="label">26-05 | 87.1kg</ion-label>
-        </ion-item>
-        <ion-item color="danger">
-          <ion-label class="label">27-05 | 87.3kg</ion-label>
-        </ion-item>
-        <ion-item color="warning">
-          <ion-label class="label">29-05 | 87.3kg</ion-label>
-        </ion-item>
-        <ion-item color="primary">
-          <ion-label class="label">30-05 | 87.1kg</ion-label>
-        </ion-item>
-        <ion-item color="danger">
-          <ion-label class="label">31-05 | 87.4kg</ion-label>
-        </ion-item> -->
       </ion-list>
     </ion-card>
   </div>

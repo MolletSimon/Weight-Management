@@ -29,6 +29,7 @@ export class WeightPage implements OnInit {
 		this.weightService.getUserInfo().subscribe(user => {
 			this.actualUser = user;
 			this.getWeights();
+			this.weightModified = false;
 		})
 	}
 
@@ -38,6 +39,11 @@ export class WeightPage implements OnInit {
 			this.weights.reverse();
 			this.weights = this.weights.slice(0, 6);
 		})
+	}
+
+	doRefresh(event) {
+		this.getUserInfos();
+		event.target.complete();
 	}
 
 	getLastWeight() {

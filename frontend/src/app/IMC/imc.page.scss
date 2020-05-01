@@ -1,0 +1,88 @@
+.first-row {
+    display: flex;
+}
+
+.card {
+    width: 45%;
+    height: 40%;
+    border: solid;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    font-size: 22px;
+}
+
+.card-imc {
+    border: solid;
+    box-shadow: 5px 5px lightgrey;
+    height: 20%;
+}
+
+.card-header-imc {
+    height: 35%;
+    ion-card-subtitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        margin-top: -5px;
+        text-align: center;
+    }
+}
+
+.about-imc {
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar {
+    width: 100%;
+
+    ion-progress-bar {
+        height: 20px;
+    }
+}
+
+.card-header {
+    height: 80%;
+    ion-card-subtitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+#first-card-header {
+    background-color: #8DD7CF;
+}
+
+#first-card-content {
+    color: #8DD7CF;
+}
+
+#second-card-header {
+    background-color: #F3C19C;
+}
+
+#second-card-content {
+    color: #F3C19C;
+}
+
+#third-card-header {
+    background-color: #B2ABFA;
+}
+
+.bottom-text {
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+}
