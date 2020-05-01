@@ -95,32 +95,32 @@
 
       <div class="array">
       <ion-list class="list">
-        <ion-item color="light">
+        <ion-item color="light" lines="full" class="weight-list">
           <ion-label class="label">Date </ion-label>
         </ion-item>
 
         <div class="weight-list" *ngFor="let weight of weights">
-          <ion-item color="light">
+          <ion-item color="light" lines="full">
             <ion-label class="label" >{{weight.date | date:"dd-MM"}}</ion-label>
           </ion-item>
         </div>
       </ion-list>
 
       <ion-list class="list">
-        <ion-item color="light">
+        <ion-item color="light" lines="full">
           <ion-label class="label">Poids</ion-label>
         </ion-item>
 
         <div class="weight-list" *ngFor="let weight of weights">
-          <ion-item *ngIf="weight.loss == 'loss'" color="primary">
+          <ion-item *ngIf="weight.loss == 'loss'" color="primary" lines="full">
             <ion-label class="label" >{{weight.value}}kg</ion-label>
           </ion-item>
 
-          <ion-item *ngIf="weight.loss == 'draw'" color="warning">
+          <ion-item *ngIf="weight.loss == 'draw'" color="warning" lines="full">
             <ion-label class="label" >{{weight.value}}kg</ion-label>
           </ion-item>
 
-          <ion-item *ngIf="weight.loss == 'gain'" color="danger">
+          <ion-item *ngIf="weight.loss == 'gain'" color="danger" lines="full">
             <ion-label class="label" > {{weight.value}}kg</ion-label>
           </ion-item>
         </div>
