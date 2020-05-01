@@ -39,3 +39,7 @@ ionic serve
 ```
 
 it will open the navigator at localhost:8100, press F12 and then Ctrl + Shift + M
+
+## Screenshots
+![Screenshot](https://github.com/MolletSimon/Weight-Management/blob/master/screenshots/Weight-Screen.png)
+
