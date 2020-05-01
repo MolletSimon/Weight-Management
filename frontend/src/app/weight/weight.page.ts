@@ -110,7 +110,7 @@ export class WeightPage implements OnInit {
 				{
 					text: 'Valider',
 					handler: data => {
-						this.actualUser.actualWeight = data.weight;
+						this.actualUser.actualWeight = parseFloat(data.weight);
 						this.save();
 					}
 				}
