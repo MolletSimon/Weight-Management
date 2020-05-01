@@ -73,7 +73,7 @@
     </ion-card>
 
     <ion-card class="card">
-      <ion-list class="list">
+      <!-- <ion-list class="list">
         <ion-item color="light">
           <ion-label class="label">Date  | Poids</ion-label>
         </ion-item>
@@ -91,8 +91,43 @@
             <ion-label class="label" >{{weight.date | date:"dd-MM"}} | {{weight.value}}kg</ion-label>
           </ion-item>
         </div>
+      </ion-list> -->
+
+      <div class="array">
+      <ion-list class="list">
+        <ion-item color="light">
+          <ion-label class="label">Date </ion-label>
+        </ion-item>
+
+        <div class="weight-list" *ngFor="let weight of weights">
+          <ion-item color="light">
+            <ion-label class="label" >{{weight.date | date:"dd-MM"}}</ion-label>
+          </ion-item>
+        </div>
       </ion-list>
+
+      <ion-list class="list">
+        <ion-item color="light">
+          <ion-label class="label">Poids</ion-label>
+        </ion-item>
+
+        <div class="weight-list" *ngFor="let weight of weights">
+          <ion-item *ngIf="weight.loss == 'loss'" color="primary">
+            <ion-label class="label" >{{weight.value}}kg</ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="weight.loss == 'draw'" color="warning">
+            <ion-label class="label" >{{weight.value}}kg</ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="weight.loss == 'gain'" color="danger">
+            <ion-label class="label" > {{weight.value}}kg</ion-label>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
     </ion-card>
+
   </div>
 
 

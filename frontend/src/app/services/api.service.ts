@@ -6,7 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ApiService {
 
-	public apiUrl = 'http://localhost:3000/api/'
+	public apiUrl = 'http://app-2d0035b9-ec1c-4a14-98e7-bcbad99acd7b.cleverapps.io/api/'
 
 	public httpOptions = {
 		headers: new HttpHeaders({
