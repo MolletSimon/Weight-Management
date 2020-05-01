@@ -25,4 +25,6 @@ it will open the navigator at localhost:8100, press F12 and then Ctrl + Shift + 
 
 ## Screenshots
 ![Screenshot](https://github.com/MolletSimon/Weight-Management/blob/master/screenshots/Weight-Screen.png)
+![Screenshot](https://github.com/MolletSimon/Weight-Management/blob/master/screenshots/Add-Weight.png)
+![Screenshot](https://github.com/MolletSimon/Weight-Management/blob/master/screenshots/IMC-Screen.png)
 
