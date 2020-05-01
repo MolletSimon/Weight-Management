@@ -61,7 +61,7 @@
         </div>
       </ion-card-header>
 
-      <ion-card-content class="card-content" *ngIf="actualUser" id="third-card-content">
+      <ion-card-content class="card-content" *ngIf="actualUser" id="third-card-content" (click)="presentAlertModifyWeight()">
         {{actualUser.actualWeight}}kg
       </ion-card-content>
       <ion-button 

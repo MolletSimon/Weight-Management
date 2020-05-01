@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightService } from '../services/weight.service';
 import { User } from '../models/User.model';
-import { ToastController } from '@ionic/angular';
+import { ToastController, AlertController } from '@ionic/angular';
 import { Weight } from '../models/Weight.model';
 import { DatePipe } from '@angular/common';
 
@@ -18,7 +18,8 @@ export class WeightPage implements OnInit {
 	constructor(
 		private weightService: WeightService,
 		private toastController: ToastController,
-		private datePipe: DatePipe
+		private datePipe: DatePipe,
+		private alertController: AlertController
 		) { }
 
 	ngOnInit() {
@@ -88,5 +89,34 @@ export class WeightPage implements OnInit {
 		}
 		this.weightService.addWeight(weight)
 			.subscribe(res => this.getWeights());
+	}
+
+	async presentAlertModifyWeight() {
+		const alert = await this.alertController.create({
+			header: 'Saisir poids :',
+			inputs: [
+				{
+					name: 'weight',
+					type: 'number',
+					placeholder: 'Entrez votre poids'
+				}
+			],
+			buttons: [
+				{
+					text: 'Annuler',
+					role: 'cancel',
+					cssClass: 'danger',
+				},
+				{
+					text: 'Valider',
+					handler: data => {
+						this.actualUser.actualWeight = data.weight;
+						this.save();
+					}
+				}
+			]
+		});
+
+		await alert.present();
 	}
 }

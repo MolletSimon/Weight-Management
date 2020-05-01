@@ -57,12 +57,12 @@
       <div class="bar">
         <ion-progress-bar color="primary" value="{{imcPourcent}}" *ngIf="imcPourcent <= 0.39" ></ion-progress-bar>
         <ion-progress-bar color="warning" value="{{imcPourcent}}" *ngIf="imcPourcent <= 0.7 && imcPourcent > 0.39"></ion-progress-bar>
-        <ion-progress-bar color="danger" value="{{imcPourcent}}" *ngIf="imcPourcent <= 0.7 && imcPourcent > 0.7"></ion-progress-bar>
+        <ion-progress-bar color="danger" value="{{imcPourcent}}" *ngIf="imcPourcent > 0.7 && imcPourcent < 1"></ion-progress-bar>
         <ion-progress-bar color="dark" value="{{imcPourcent}}" *ngIf="imcPourcent >= 1"></ion-progress-bar>
 
         <div class="scale">
-          <ion-label color="primary">20</ion-label>
-          <ion-label color="warning">25</ion-label>
+          <ion-label color="primary">18.5</ion-label>
+          <ion-label color="warning" id="second-scale">25</ion-label>
           <ion-label color="danger">30</ion-label>
           <ion-label id="last-scale">35</ion-label>
         </div>
