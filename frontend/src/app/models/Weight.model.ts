@@ -3,4 +3,5 @@ export class Weight {
     value: number;
     userId: string;
     loss: string;
+    _id: string;
 }

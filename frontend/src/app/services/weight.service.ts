@@ -32,6 +32,13 @@ export class WeightService {
 		)
 	}
 
+	deleteWeight(id: string): Observable<Object>{
+		return this.httpClient.delete(
+			this.apiService.apiUrl + `weight/${id}`,
+			this.apiService.httpOptions
+		)
+	}
+
 	getWeightOfUser(user: User): Observable<Weight[]> {
 		return this.httpClient.get<Weight[]>(this.apiService.apiUrl + `weight/user/${user._id}`, this.apiService.httpOptions);
 	}

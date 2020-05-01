@@ -91,6 +91,18 @@ export class WeightPage implements OnInit {
 			.subscribe(res => this.getWeights());
 	}
 
+	deleteWeight(id: string) {
+		this.weightService.deleteWeight(id).subscribe(async res => {
+			const toast = await this.toastController.create({
+				message: res["message"],
+				duration: 3000,
+				color: 'danger'
+			  });
+			  toast.present();
+			  this.getWeights();
+		});
+	}
+
 	async presentAlertModifyWeight() {
 		const alert = await this.alertController.create({
 			header: 'Saisir poids :',
